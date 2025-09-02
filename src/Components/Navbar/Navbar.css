@@ -21,9 +21,11 @@
     justify-content: space-between;
     gap: 10px;
     margin: 0px 0px 0px 100px;
+    cursor: pointer;
    }
    .logo h5{
     margin: 10px 0px 0px 0px;
+    cursor: pointer;
    }
    .nav-items{
     display: flex;
@@ -81,6 +83,7 @@
     text-decoration: none;
     font: 600 15px 'Poppins', sans-serif;
     color: #010101;
+   
 }
 .login:hover{
     border-color: #ada9a9;
