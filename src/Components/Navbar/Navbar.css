@@ -35,22 +35,33 @@
     color: #000000;
     align-items: center;
     }
-.nav-items ul{
-    list-style: none;
-}
-.nav-items ul li a{
-    text-decoration: none;
-    color: #000000;
-    list-style: none;
-}
+
 /* .nav-items ul li a:active {
     color: #ffffff;
     transition: 0.3s;
 } */
-.nav-items ul li a:hover{
-    color: #b9b5b5;
+.nav-menu{
+    display: flex;
+    
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 0px 50px;
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+.nav-menu li:active{
+    color: red;
     transition: 0.3s;
 }
+.nav-menu li:hover{
+   color: rgb(92, 87, 87);
+    border-radius: 20px;
+
+ 
+}
+
 .login{
     display: flex;
     padding: 8px 20px;
@@ -109,7 +120,14 @@
     align-items: center;
     justify-content: center;    
     height: 15px;
+    list-style: none;
+    text-decoration: none;
 }
 
-   
-  
+.nav-menu hr{
+    color: red;
+    width: auto;
+    background-color: red;
+    height: 2px;
+    
+}
