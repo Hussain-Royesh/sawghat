@@ -1,0 +1,84 @@
+.hero{
+    height: 100vh;
+ 
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.hero-left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 140px;
+    gap: 20px;
+    margin-bottom: 130px;
+    margin-top: -140px;
+}  
+.hero-left h3{
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 70px;
+    color: #212121;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: -50px;
+}
+.collection{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: -50px;
+}
+.hero-right{
+    flex: 1;
+    display: flex;
+   
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+    margin: 0px 0px 180px 49px;
+}
+.hero-right img{
+    height: 400px;
+    width: 300px;
+    margin: 30px 50px;
+    border-radius: 20px;
+
+}
+.hand_icons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;}
+.hand_icons img{
+    height: 50px;   
+    margin-bottom: 30px;
+
+}
+
+
+.hero-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 0px 10px 0px 0px;
+}
+.hero-buttons button{
+    height: 40px;
+    width: 200px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background-color: #f10303;
+    cursor: pointer;
+}
