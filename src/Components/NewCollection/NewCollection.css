@@ -1,0 +1,14 @@
+ .new-collection-heading{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.new-collection-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  
+}
