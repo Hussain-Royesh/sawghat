@@ -1,0 +1,74 @@
+.footer{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+.footer-logo{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;   
+}
+.footer-logo p{
+    width: 150px;
+    font-weight: 500;
+   font-size: 30px; 
+}
+.footer-links{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+}
+.footer-links li{
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+.footer-links li:hover{
+    color: black;
+    transition: 0.3s;
+}
+.footer-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.footer-social-container{
+    width: auto;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+.footer-social-container .pintester:hover{
+    background-color: #ff0000;
+    transition: 0.3s;
+    border-radius: 15px;
+    color: white;
+}
+.footer-social-container .WhatsApp:hover{
+    background-color: #3aa06b;
+    transition: 0.3s;
+    border-radius: 15px;
+    color: white;
+}
+.footer-social-container .instagram:hover{
+    background-color: #f16d269e;
+    transition: 0.3s;
+    border-radius: 15px;
+    color: white;
+}
+.copy-right{
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 20px;
+}   

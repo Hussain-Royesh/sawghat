@@ -5,7 +5,7 @@
     display: flex;
     padding: 0px 140px;
     margin-bottom: 150px;
-    background: linear-gradient(120deg, rgb(255, 255, 255) 0%, rgb(225, 166, 166) 100%);
+   background: linear-gradient(to bottom, rgb(180, 116, 116) 0%, rgb(255, 255, 255) 100%);
     margin-top: 140px;
 }
 .offers-left{

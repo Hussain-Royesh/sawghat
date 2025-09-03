@@ -1,0 +1,50 @@
+.newsletter {
+
+  width: 65%;
+  /* height: 0vh;  <-- remove this */
+  min-height: 300px;           /* or height: 100vh; for full screen section */
+  margin: 140px auto 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 140px;         /* add some vertical padding so it’s visible */
+  background: linear-gradient(to bottom, rgb(180, 116, 116) 0%, rgb(255, 255, 255) 100%);
+  align-items: center;
+  gap: 20px;
+}
+ .newsletter h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  justify-content: center;
+  text-align: center;
+  font-style: oblique;
+
+}
+
+.newsletter p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+  justify-content: center;}
+.newsletter input[type="email"] {
+  padding: 10px;
+  width: 250px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.newsletter button {
+  padding: 10px 20px;
+  background-color:transparent #fbfbfb;
+  color: rgb(0, 0, 0);
+  border: 1px solid #3e3e3e;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-style: oblique;
+
+  
+}
+.newsletter button:hover {
+  background-color: #ede8e8;
+} 

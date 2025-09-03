@@ -6,8 +6,8 @@ import Items from '../Items/Items.jsx'
 const NewCollection = () => {
   return (
     <div className='new-collection-heading'>
-      <h1>New Cllections</h1>
-      <hr />
+      <h1 >New Collections</h1>
+      <hr style={{marginBottom:'30px'}} />
   <div className="new-collection-container">
             {new_collection.map((item, i)=>{
                 return(
