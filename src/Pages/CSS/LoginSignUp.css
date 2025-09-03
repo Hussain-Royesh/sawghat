@@ -1,0 +1,95 @@
+
+.general {
+ background: #fce3fe;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.login-signup {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+.login-signup h4 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-signup-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-signup-input-field input {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.login-signup-input-field input:focus {
+  outline: none;
+  border-color: #6366f1; /* Indigo */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.login-signup-input-field button {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #6366f1; /* Indigo */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-signup-input-field button:hover {
+  background: #4f46e5; /* Darker Indigo */
+}
+
+.login-signup-continue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.login-signup-continue input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.login-signup-already {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.login-signup-already span {
+  color: #6366f1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-signup-already span:hover {
+  text-decoration: underline;
+}
