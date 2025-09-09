@@ -32,7 +32,26 @@ function App() {
       </Routes>
      <Footer/>
 
-      </BrowserRouter>
+           </BrowserRouter>
+
+      {/* <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Shop />} />
+          <Route path="/men" element={<ShopCategory banner={man_banner} category="men" />}>
+            <Route path="product/:productid" element={<Product />} />
+          </Route>
+          <Route path="/women" element={<ShopCategory banner={women_banner} category="women" />}>
+            <Route path="product/:productid" element={<Product />} />
+          </Route>
+          <Route path="/kids" element={<ShopCategory banner={kids_banner} category="kid" />}>
+            <Route path="product/:productid" element={<Product />} />
+          </Route>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginSignUp />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter> */}
     </>
   )
 }
