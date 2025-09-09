@@ -9,8 +9,9 @@ const Newletter = () => {
       <div>  <p>Subscribe to Our Channel and Stay Update</p></div>
      
       <div>
-        <input type="email" placeholder='Enter Your Email to receive Update'  />
-        <button>Subscribe</button>
+        <form action=""> <input type="email" placeholder='Enter Your Email to receive Update'  required />
+        <button type='submit'>Subscribe</button></form>
+        
       </div>
       
     </div>

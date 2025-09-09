@@ -1,0 +1,73 @@
+.RelatedProducts {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.RelatedProducts h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.RelatedProducts hr {
+  border: none;
+  height: 2px;
+  background-color: #eee;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout for product cards */
+.RelatedProducts-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Optional: add a hover effect to each product card inside Items component */
+.Items-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.Items-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.Items-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.Items-card .Items-info {
+  padding: 1rem;
+}
+
+.Items-card .Items-name {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.Items-card .Items-price {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.Items-card .Items-old-price {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.Items-card .Items-new-price {
+  color: #e63946;
+  font-weight: 600;
+}

@@ -10,10 +10,10 @@ const ShopCategory = (props) => {
   const {all_products} = React.useContext(ShopContext)
   return (
     <div className='shop-category'>
-      {<img src={props.banner} alt="banner" className='category-banner'/>}
+     {<img src={props.banner} alt="banner" className='category-banner'/>} 
     <div className="shop-category-indexsort">
       <p>
-        <span>Show Items 1 -12</span> out of 36
+        <span>Show Items 1-12</span> out of 36
       </p>
 
     </div>
@@ -25,7 +25,7 @@ const ShopCategory = (props) => {
      
       {all_products.map((item,i)=>{
         if(item.category === props.category){
-             return  <Items key={i}  name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
+             return  <Items key={i} id={item.id}   name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
         }
         else{ 
           return null
