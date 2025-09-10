@@ -10,9 +10,6 @@ import RelatedProducts from '../Components/RelatedProducts/RelatedProducts'
 const Product = () => {
   const { all_products } = useContext(ShopContext);
   const { productid } = useParams();
-
- 
-
   const product = all_products.find((e) => e.id === Number(productid));
 
   if (!product) {
@@ -21,8 +18,11 @@ const Product = () => {
 
   return (
     <div>
-      <BreadCrump product={product} />
+    
+     <BreadCrump product={product} />
+     
       <DisplayProduct product={product} />
+       
       <DescriptionBox />
       <RelatedProducts/>
 

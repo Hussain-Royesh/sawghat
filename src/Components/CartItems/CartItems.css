@@ -1,0 +1,134 @@
+.cartItems {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 2px;
+}
+
+.cartItems-Container {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.cartItems hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.cartItems-format {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr 0.8fr 1fr 0.8fr;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px 0;   /* reduce vertical padding */
+  gap: 6px;         /* less gap between columns */
+}
+
+.cartItems hr {
+  margin: 2px 0;    /* very small space between rows */
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.cart-icon {
+  width: 60px;      /* smaller product images */
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.cartitems.qut {
+  padding: 4px 8px; /* smaller quantity button */
+  font-size: 14px;
+}
+.removeimg{
+    background-color: rgb(154, 72, 72);
+}
+/* Parent wrapper to align subtotal & promo side by side */
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+/* --- Cart Total Section (Left) --- */
+.cart-total {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.cart-total p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 8px 0;
+  color: #333;
+}
+
+.cart-total p:last-child {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+/* --- Promo Code Section (Right) --- */
+.promo-code {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.promo-code h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.promo-code input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.promo-code button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.promo-code button:hover {
+  background: #333;
+}
