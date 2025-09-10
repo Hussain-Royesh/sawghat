@@ -6,7 +6,7 @@ const Items = (props) => {
     <div className='item'>
         <div className="item-card">
          
-          <Link to={`product/${props.id}`} > <img src={props.image} onClick={window.scroll(0,0)} alt="item" /></Link>
+          <Link to={`/product/${props.id}`} > <img src={props.image} onClick={window.scroll(0,0)} alt="item" /></Link>
            <h3>{props.id}</h3>
            <h3>{props.name}</h3>
             <span>New_Price: {props.new_price}</span>

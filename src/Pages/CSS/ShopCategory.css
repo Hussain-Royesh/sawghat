@@ -51,3 +51,22 @@
   margin-top: 20px;
   cursor: pointer;
 }
+explore-more, button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 150px auto;
+  width: 200px;
+  height: 59px;
+  background-color: white;
+  color: #555;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+explore-more, button:hover{
+  background-color: #555;
+  color: white;
+}
