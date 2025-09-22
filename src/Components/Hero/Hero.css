@@ -81,3 +81,118 @@
     background-color: #f10303;
     cursor: pointer;
 }
+
+
+/* Responsive Design */
+@media(max-width: 1200px){
+    .hero {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .hero ul li {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 1024px){
+    .hero {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    .hero ul li {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .btn {
+        padding: 6px 14px;
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 768px){
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .hero ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(2, 72, 104, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 60px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero ul.active {
+        right: 0;
+    }
+    
+    .hero ul li {
+        display: block;
+        margin: 15px 0;
+        padding: 8px 15px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .btn {
+        margin: 8px 0;
+        width: 80%;
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 480px){
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    
+    .hero img {
+        width: 100px;
+        height: 24px;
+    }
+    
+    .hero ul {
+        width: 200px;
+        padding-top: 50px;
+    }
+    
+    .hero ul li {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .btn {
+        width: 90%;
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+}
