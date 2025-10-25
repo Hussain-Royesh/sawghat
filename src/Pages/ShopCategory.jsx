@@ -2,7 +2,6 @@ import React from 'react'
 import './CSS/ShopCategory.css' 
 import {ShopContext} from '../Context/ShopContext'
 import drop_down from '../Components/Assets/dropdown_icon.png'
-import all_products from '../Components/Assets/all_product.js'
 import Items from '../Components/Items/Items'
 
 const ShopCategory = (props) => {

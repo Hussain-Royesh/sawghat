@@ -1,7 +1,7 @@
-import react, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import all_products from "../Components/Assets/all_product.js";
 
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext(null);
 
 const GetdefaultCart =()=>{
