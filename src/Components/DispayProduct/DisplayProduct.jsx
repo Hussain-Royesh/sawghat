@@ -1,10 +1,19 @@
 import React, { useContext } from 'react'
 import {ShopContext} from '../../Context/ShopContext'
+import { useToast } from '../Toast/Toast'
 import './DisplayProduct.css'
+
 const DisplayProduct = (props) => {
 
     const {product} = props;    
     const{addToCart} = useContext(ShopContext);
+    const { showToast } = useToast();
+    
+    const handleAddToCart = () => {
+        addToCart(product.id);
+        showToast(`${product.name} added to cart!`, 'success');
+    };
+
   return (
     <div className='display_product'>
         <div className="display-lef">
@@ -38,7 +47,7 @@ const DisplayProduct = (props) => {
             </div>
             <div className="display-quantity">
            
-            <button onClick={()=>{addToCart(product.id)}} className='add-to-cart-btn'>Add to Cart</button> 
+            <button onClick={handleAddToCart} className='add-to-cart-btn'>Add to Cart</button> 
             <button className='buy-now-btn'>Buy Now</button>    
 
              </div>  
@@ -49,4 +58,4 @@ const DisplayProduct = (props) => {
   )
 }
 
-export default DisplayProduct 
+export default DisplayProduct

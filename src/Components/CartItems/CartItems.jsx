@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import './cartItems.css';
+import './CartItems.css';
 import { ShopContext } from '../../Context/ShopContext';
 import remove_icon from '../Assets/cart_cross_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 const CartItems = () => {
   const {getTotalCartAmount, all_products, cartItems, removeFromCart } = useContext(ShopContext);
+  const navigate = useNavigate();
+
+  const hasItems = all_products.some((e) => cartItems[e.id] > 0);
 
   return (
     <div className="cartItems">
@@ -53,6 +57,17 @@ const CartItems = () => {
     <input type="text" placeholder="Enter your Promo Code" required />
     <button>Submit</button>
   </div>
+  
+  {hasItems && (
+    <div className="checkout-button-container">
+      <button 
+        className="proceed-to-checkout-btn"
+        onClick={() => navigate('/checkout')}
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  )}
 </div>
 
       

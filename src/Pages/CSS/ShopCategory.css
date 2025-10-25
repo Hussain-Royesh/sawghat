@@ -10,11 +10,19 @@
   height: auto;
   border-radius: 10px;
 }
+
+.shop-category-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .shop-category-indexsort{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 20px;
   font-size: 14px;
   color: #555;
 }
@@ -25,19 +33,59 @@
 } 
 .shop-category-sort{
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-top: -15px;
+  gap: 8px;
   font-size: 14px;
   color: #555;
-  margin-right: -10px;
   cursor: pointer;
   font-weight: 400;
   border: 1px solid #ccc;
-  width: 60px;
-  float: right;
+  padding: 8px 15px;
   border-radius: 10px;
-  padding: 4px 10px;
+  position: relative;
+}
+
+.shop-category-sort:hover {
+  border-color: #ff4141;
+}
+
+.shop-category-sort img {
+  transition: transform 0.3s ease;
+}
+
+.shop-category-sort img.dropdown-open {
+  transform: rotate(180deg);
+}
+
+.sort-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.sort-dropdown div {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sort-dropdown div:hover {
+  background-color: #f5f5f5;
+}
+
+.sort-dropdown div:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.sort-dropdown div:last-child {
+  border-radius: 0 0 8px 8px;
 }
 
 .shop-category p{
