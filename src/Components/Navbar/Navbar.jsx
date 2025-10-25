@@ -4,6 +4,7 @@ import logo from '../Assets/logo.png'
 import cart_logo from '../Assets/cart_icon.png'
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
+import SearchBar from '../SearchBar/SearchBar'
 
 const Navbar = () => {
     const [hrmeune, setHrmenue] = useState("shop");
@@ -12,7 +13,8 @@ const Navbar = () => {
 
        
   return (
-    <div className="navbar">
+    <div className="navbar-container">
+      <div className="navbar">
         <div className='logo'>
             <Link to="/">    <img src={logo} alt="sawghat logo" /> </Link>
             <h5> <Link to="/" style={{textDecoration:'none'}}> Sawghat Online Store</Link> </h5>
@@ -37,6 +39,10 @@ const Navbar = () => {
         </div>
         </div>
       
+      </div>
+      <div className="navbar-search">
+        <SearchBar />
+      </div>
     </div>
   )
 }

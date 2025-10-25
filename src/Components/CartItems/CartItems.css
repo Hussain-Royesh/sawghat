@@ -132,3 +132,26 @@
 .promo-code button:hover {
   background: #333;
 }
+
+.checkout-button-container {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.proceed-to-checkout-btn {
+  padding: 15px 40px;
+  background-color: #ff4141;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.proceed-to-checkout-btn:hover {
+  background-color: #e63636;
+}

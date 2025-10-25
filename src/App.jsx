@@ -5,6 +5,8 @@ import ShopCategory from './Pages/ShopCategory'
 import Product from './Pages/Product'
 import Cart from './Pages/Cart'
 import LoginSignUp from './Pages/LoginSignUp'
+import SearchResults from './Pages/SearchResults'
+import Checkout from './Pages/Checkout'
 import Footer from './Components/Footer/Footer'
 import man_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
@@ -23,6 +25,8 @@ function App() {
           <Route path='/kids' element={<ShopCategory banner={kids_banner} category="kid" />} /> 
           <Route path='/cart' element={<Cart />} />
           <Route path="/product/:productid" element={<Product />} />
+          <Route path='/search' element={<SearchResults />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='/login' element={<LoginSignUp />} />
         </Routes>
         <Footer/>

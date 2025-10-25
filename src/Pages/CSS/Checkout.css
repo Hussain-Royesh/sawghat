@@ -1,0 +1,257 @@
+.checkout {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.checkout h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.checkout-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #171717;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ff4141;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkout-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ff4141;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-submit-btn:hover {
+  background-color: #e63636;
+}
+
+.order-summary {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+
+.order-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #171717;
+}
+
+.summary-products {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+
+.summary-product {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-product:last-child {
+  border-bottom: none;
+}
+
+.summary-product img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.summary-product-details {
+  flex: 1;
+}
+
+.summary-product-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.summary-product-price {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.summary-product-total {
+  font-weight: 700;
+  color: #ff4141;
+}
+
+.summary-totals {
+  border-top: 2px solid #eee;
+  padding-top: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.summary-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #171717;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.checkout-success {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-content {
+  text-align: center;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: #4caf50;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+}
+
+.success-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #171717;
+}
+
+.success-content p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.checkout-empty {
+  text-align: center;
+  padding: 4rem 1rem;
+  min-height: 60vh;
+}
+
+.checkout-empty h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.checkout-empty p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.checkout-empty button {
+  padding: 1rem 2rem;
+  background-color: #ff4141;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-empty button:hover {
+  background-color: #e63636;
+}
+
+@media (max-width: 968px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-form,
+  .order-summary {
+    padding: 1.5rem;
+  }
+}
