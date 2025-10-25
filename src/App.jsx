@@ -10,7 +10,7 @@ import Footer from './Components/Footer/Footer'
 import man_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
 import kids_banner from './Components/Assets/banner_kids.png'
- 
+ import Subscription from './Components/Subscription/index'
 
 function App() {
   return (
@@ -28,10 +28,10 @@ function App() {
           <Route path='/kids' element={<ShopCategory banner={kids_banner} category="kid" />} /> 
           <Route path='/cart' element={<Cart />} />
          <Route path="/product" element={<Product/>}>
-               <Route path=":productid" element={<Product />} />   
+          <Route path=":productid" element={<Product />} />   
         </Route>
-      
-          <Route path='/login' element={<LoginSignUp />} />
+        <Route path='/login' element={<LoginSignUp />} />
+        <Route path='/subscription' element={<Subscription/>} />
         
       </Routes>
      <Footer/>

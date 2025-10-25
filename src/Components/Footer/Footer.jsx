@@ -4,6 +4,8 @@ import footer_log from '../Assets/logo.png'
 import instagram from '../Assets/instagram_icon.png'
 import whatsApp from '../Assets/whatsapp_icon.png'
 import pintester from '../Assets/pintester_icon.png'
+import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
   return (
@@ -18,6 +20,7 @@ const Footer = () => {
             <li>Cart</li>
             <li>Contact Us</li>
             <li>Feedback</li>
+            <Link to='subscription' >    <li>Subscribe</li> </Link>
         </ul>
         <div className="footer-social">
             <div className="footer-social-container">

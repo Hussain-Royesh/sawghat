@@ -1,0 +1,18 @@
+.subscription{
+   width: 50%;
+   background-color:bisque ;
+   margin: 100px;
+   text-align: center;
+   align-items: center;
+   padding-left: 0px;
+   margin-left: 40px;
+   }
+.subscription input{
+    margin-top: 20px;
+
+    padding:10px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 250px;  
+
+}
