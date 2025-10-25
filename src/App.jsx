@@ -7,6 +7,8 @@ import Cart from './Pages/Cart'
 import LoginSignUp from './Pages/LoginSignUp'
 import SearchResults from './Pages/SearchResults'
 import Checkout from './Pages/Checkout'
+import Contact from './Pages/Contact'
+import About from './Pages/About'
 import Footer from './Components/Footer/Footer'
 import man_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
@@ -27,6 +29,8 @@ function App() {
           <Route path="/product/:productid" element={<Product />} />
           <Route path='/search' element={<SearchResults />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/about' element={<About />} />
           <Route path='/login' element={<LoginSignUp />} />
         </Routes>
         <Footer/>
