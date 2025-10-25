@@ -9,6 +9,7 @@ import SearchResults from './Pages/SearchResults'
 import Checkout from './Pages/Checkout'
 import Contact from './Pages/Contact'
 import About from './Pages/About'
+import NotFound from './Pages/NotFound'
 import Footer from './Components/Footer/Footer'
 import man_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
@@ -32,6 +33,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/about' element={<About />} />
           <Route path='/login' element={<LoginSignUp />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

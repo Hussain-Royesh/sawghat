@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './CSS/Contact.css';
 
+const INITIAL_FORM_STATE = {
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+};
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM_STATE);
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -21,17 +23,11 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would normally send the form data to a backend
-    console.log('Contact form submitted:', formData);
     setSubmitted(true);
     
     // Reset form after 3 seconds
     setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      setFormData(INITIAL_FORM_STATE);
       setSubmitted(false);
     }, 3000);
   };

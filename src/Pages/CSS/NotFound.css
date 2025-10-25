@@ -1,0 +1,144 @@
+.not-found-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff4141 0%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.not-found-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #171717;
+  margin-bottom: 1rem;
+}
+
+.not-found-content p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.btn-home,
+.btn-contact {
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-home {
+  background-color: #ff4141;
+  color: white;
+}
+
+.btn-home:hover {
+  background-color: #e63636;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 65, 65, 0.3);
+}
+
+.btn-contact {
+  background-color: white;
+  color: #ff4141;
+  border: 2px solid #ff4141;
+}
+
+.btn-contact:hover {
+  background-color: #ff4141;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 65, 65, 0.3);
+}
+
+.suggestions {
+  border-top: 2px solid #eee;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.suggestions h3 {
+  font-size: 1.2rem;
+  color: #171717;
+  margin-bottom: 1rem;
+}
+
+.suggestions ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.suggestions li a {
+  color: #ff4141;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.suggestions li a:hover {
+  color: #e63636;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .not-found-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .not-found-content p {
+    font-size: 1rem;
+  }
+
+  .not-found-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-home,
+  .btn-contact {
+    width: 100%;
+  }
+
+  .suggestions ul {
+    flex-direction: column;
+  }
+}
