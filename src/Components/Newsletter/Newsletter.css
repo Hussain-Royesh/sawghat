@@ -1,50 +1,269 @@
-.newsletter {
+.newsletter {.newsletter {
 
-  width: 65%;
-  /* height: 0vh;  <-- remove this */
-  min-height: 300px;           /* or height: 100vh; for full screen section */
-  margin: 140px auto 150px;
-  display: flex;
-  flex-direction: column;
-  padding: 60px 140px;         /* add some vertical padding so it’s visible */
-  background: linear-gradient(to bottom, rgb(180, 116, 116) 0%, rgb(255, 255, 255) 100%);
-  align-items: center;
-  gap: 20px;
-}
- .newsletter h1 {
+  max-width: 800px;
+
+  margin: 4rem auto;  width: 65%;
+
+  display: flex;  /* height: 0vh;  <-- remove this */
+
+  flex-direction: column;  min-height: 300px;           /* or height: 100vh; for full screen section */
+
+  align-items: center;  margin: 140px auto 150px;
+
+  text-align: center;  display: flex;
+
+  padding: 3rem 2rem;  flex-direction: column;
+
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #6c5ce7 100%);  padding: 60px 140px;         /* add some vertical padding so it’s visible */
+
+  border-radius: 20px;  background: linear-gradient(to bottom, rgb(180, 116, 116) 0%, rgb(255, 255, 255) 100%);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);  align-items: center;
+
+  position: relative;  gap: 20px;
+
+  overflow: hidden;}
+
+} .newsletter h1 {
+
   font-size: 40px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  justify-content: center;
-  text-align: center;
-  font-style: oblique;
 
-}
+.newsletter h1 {  margin-bottom: 20px;
 
-.newsletter p {
+  font-size: 2.5rem;  font-weight: 600;
+
+  margin-bottom: 1rem;  justify-content: center;
+
+  font-weight: 700;  text-align: center;
+
+  color: white;  font-style: oblique;
+
+  font-family: 'Poppins', sans-serif;
+
+  line-height: 1.2;}
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+}.newsletter p {
+
   font-size: 20px;
-  margin-bottom: 20px;
-  flex: 1;
-  justify-content: center;}
-.newsletter input[type="email"] {
-  padding: 10px;
-  width: 250px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.newsletter button {
-  padding: 10px 20px;
-  background-color:transparent #fbfbfb;
-  color: rgb(0, 0, 0);
-  border: 1px solid #3e3e3e;
-  border-radius: 14px;
-  cursor: pointer;
-  font-weight: 500;
-  font-style: oblique;
 
-  
-}
-.newsletter button:hover {
+.newsletter p {  margin-bottom: 20px;
+
+  font-size: 1.1rem;  flex: 1;
+
+  margin-bottom: 2rem;  justify-content: center;}
+
+  color: rgba(255, 255, 255, 0.9);.newsletter input[type="email"] {
+
+  font-weight: 400;  padding: 10px;
+
+  max-width: 500px;  width: 250px;
+
+  line-height: 1.5;  margin-right: 10px;
+
+}  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+.newsletter form {}
+
+  position: relative;.newsletter button {
+
+  display: flex;  padding: 10px 20px;
+
+  align-items: center;  background-color:transparent #fbfbfb;
+
+  background: white;  color: rgb(0, 0, 0);
+
+  border-radius: 60px;  border: 1px solid #3e3e3e;
+
+  padding: 6px;  border-radius: 14px;
+
+  width: 100%;  cursor: pointer;
+
+  max-width: 450px;  font-weight: 500;
+
+  margin-top: 1rem;  font-style: oblique;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+
+  border: 2px solid rgba(255, 255, 255, 0.3);  
+
+  overflow: hidden;}
+
+}.newsletter button:hover {
+
   background-color: #ede8e8;
-} 
+
+.newsletter form::before {} 
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53, #74b9ff, #6c5ce7);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.newsletter input[type="email"] {
+  flex: 1;
+  padding: 1.2rem 1.8rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.newsletter input[type="email"]::placeholder {
+  color: #999;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.newsletter input[type="email"]:focus::placeholder {
+  color: #ccc;
+  transform: translateX(5px);
+}
+
+.newsletter button {
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+}
+
+.newsletter button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.newsletter button:hover {
+  background: linear-gradient(45deg, #ff5252, #ff7043);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+}
+
+.newsletter button:active {
+  transform: translateY(0);
+}
+
+/* Decorative elements */
+.newsletter::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.newsletter::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .newsletter {
+    margin: 3rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .newsletter h1 {
+    font-size: 2rem;
+  }
+  
+  .newsletter p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .newsletter form {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 20px;
+  }
+  
+  .newsletter input[type="email"] {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .newsletter button {
+    width: 100%;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter {
+    margin: 2rem 0.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .newsletter h1 {
+    font-size: 1.7rem;
+  }
+  
+  .newsletter p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .newsletter form {
+    padding: 10px;
+  }
+  
+  .newsletter input[type="email"],
+  .newsletter button {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+  }
+}
