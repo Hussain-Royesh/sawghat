@@ -132,3 +132,107 @@
 .promo-code button:hover {
   background: #333;
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cartItems {
+    width: 95%;
+    margin: 30px auto;
+  }
+  
+  .cartItems-Container,
+  .cartItems-format {
+    font-size: 16px;
+    gap: 4px;
+  }
+  
+  .cart-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartItems {
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 1rem;
+  }
+  
+  .cartItems-Container {
+    grid-template-columns: 1fr 2fr 0.8fr 0.8fr 0.8fr 0.6fr;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  
+  .cartItems-format {
+    grid-template-columns: 1fr 2fr 0.8fr 0.6fr 0.8fr 0.6fr;
+    font-size: 13px;
+    padding: 3px 0;
+    gap: 3px;
+  }
+  
+  .cart-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .cart-summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cart-total,
+  .promo-code {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartItems {
+    padding: 0 0.5rem;
+  }
+  
+  .cartItems-Container {
+    grid-template-columns: 0.8fr 1.5fr 0.7fr 0.7fr 0.7fr 0.5fr;
+    font-size: 12px;
+    padding: 6px 0;
+  }
+  
+  .cartItems-format {
+    grid-template-columns: 0.8fr 1.5fr 0.7fr 0.5fr 0.7fr 0.5fr;
+    font-size: 11px;
+    padding: 2px 0;
+    gap: 2px;
+  }
+  
+  .cart-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .cart-total,
+  .promo-code {
+    padding: 15px;
+  }
+  
+  .cart-total p {
+    font-size: 14px;
+  }
+  
+  .cart-total p:last-child {
+    font-size: 16px;
+  }
+  
+  .promo-code h4 {
+    font-size: 14px;
+  }
+  
+  .promo-code input,
+  .promo-code button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
