@@ -93,3 +93,52 @@
 .login-signup-already span:hover {
   text-decoration: underline;
 }
+
+/* Error Styles */
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field-error {
+  color: #dc2626;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.login-signup-input-field input.error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.login-signup-input-field input.error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+/* Loading Button */
+.login-signup-input-field button.loading {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.login-signup-input-field button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.login-signup-input-field button:disabled:hover {
+  background: #9ca3af;
+}

@@ -80,3 +80,20 @@
         padding: 0 0.5rem;
     }
 }
+
+/* Loading and Empty States */
+.loading-spinner {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+    grid-column: 1 / -1;
+}
+
+.no-products {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 16px;
+    grid-column: 1 / -1;
+}

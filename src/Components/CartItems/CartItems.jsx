@@ -44,11 +44,27 @@ const CartItems = () => {
 
     <div className="cart-summary">
   <div className="cart-total">
-    <p>Subtotal</p>
-    <p>${getTotalCartAmount()}</p>
-    <p>Shipping Fee</p>
-    <p>Total</p>
-    <p>${getTotalCartAmount()}</p>
+    <div className="total-details">
+      <div className="total-row">
+        <span>Subtotal</span>
+        <span>${getTotalCartAmount()}</span>
+      </div>
+      <div className="total-row">
+        <span>Shipping Fee</span>
+        <span>Free</span>
+      </div>
+      <hr />
+      <div className="total-row final-total">
+        <span>Total</span>
+        <span>${getTotalCartAmount()}</span>
+      </div>
+    </div>
+    
+    <div className="cart-actions">
+      <button className="checkout-btn" onClick={() => window.location.href = '/checkout'}>
+        PROCEED TO CHECKOUT
+      </button>
+    </div>
   </div>
 
   <div className="promo-code">

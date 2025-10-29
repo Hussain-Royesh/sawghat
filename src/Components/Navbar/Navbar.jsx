@@ -8,8 +8,9 @@ import { ShopContext } from '../../Context/ShopContext'
 const Navbar = () => {
     const [hrmeune, setHrmenue] = useState("shop");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
     
-    const {getTotalItems} = useContext(ShopContext)
+    const { getTotalItems, isAuthenticated, user, logout } = useContext(ShopContext)
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -66,11 +67,40 @@ const Navbar = () => {
         </div>
 
         <div className='nav-right'>
-            <div className="login">
-                <Link to="/login" style={{textDecoration:"none"}} onClick={closeMobileMenu}>
-                    Login
-                </Link>
-            </div>
+            {isAuthenticated ? (
+                <div className="user-menu">
+                    <div 
+                        className="user-info" 
+                        onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    >
+                        <span>Hi, {user?.name}</span>
+                        <span className="dropdown-arrow">▼</span>
+                    </div>
+                    {userMenuOpen && (
+                        <div className="user-dropdown">
+                            <Link to="/profile" onClick={() => {setUserMenuOpen(false); closeMobileMenu();}}>
+                                Profile
+                            </Link>
+                            <Link to="/orders" onClick={() => {setUserMenuOpen(false); closeMobileMenu();}}>
+                                My Orders
+                            </Link>
+                            <button 
+                                onClick={() => {logout(); setUserMenuOpen(false); closeMobileMenu();}}
+                                className="logout-btn"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
+            ) : (
+                <div className="login">
+                    <Link to="/login" style={{textDecoration:"none"}} onClick={closeMobileMenu}>
+                        Login
+                    </Link>
+                </div>
+            )}
+            
             <div className='cart'>
                 <Link to="/cart" style={{textDecoration:'none'}} onClick={closeMobileMenu}>
                     <img src={cart_logo} alt="Cart-Logo" />
