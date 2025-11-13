@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShopContext } from '../Context/ShopContext';
+import './Checkout.css';
 import { toast } from 'react-hot-toast';
 import { 
   CreditCard, 
@@ -26,6 +27,7 @@ const Checkout = () => {
 
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
   const [deliveryAddress, setDeliveryAddress] = useState({
+    name: '',
     street: '',
     city: '',
     state: '',
@@ -36,14 +38,28 @@ const Checkout = () => {
   const [specialInstructions, setSpecialInstructions] = useState('');
   const [processing, setProcessing] = useState(false);
   const [showAddressForm, setShowAddressForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Add a small delay to allow cart to load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Don't redirect while loading
+    if (isLoading) return;
+
     if (!isAuthenticated) {
       navigate('/login');
       return;
     }
 
-    if (!cart || cart.items.length === 0) {
+    if (!cart || !cart.items || cart.items.length === 0) {
+      console.log('Cart validation failed:', { cart, items: cart?.items });
       navigate('/cart');
       return;
     }
@@ -53,7 +69,7 @@ const Checkout = () => {
       const defaultAddress = user.addresses.find(addr => addr.isDefault) || user.addresses[0];
       setDeliveryAddress(defaultAddress);
     }
-  }, [isAuthenticated, cart, navigate, user]);
+  }, [isAuthenticated, cart, navigate, user, isLoading]);
 
   const paymentMethods = [
     {
@@ -100,6 +116,15 @@ const Checkout = () => {
       fee: '৳25',
       processingTime: '1-2 days',
       available: true
+    },
+    {
+      id: 'paypal',
+      name: 'PayPal',
+      description: 'Pay securely with PayPal worldwide',
+      icon: <CreditCard className="payment-icon paypal" />,
+      fee: '3.4% + ৳15',
+      processingTime: 'Instant',
+      available: true
     }
   ];
 
@@ -109,12 +134,16 @@ const Checkout = () => {
       nagad: { rate: 0.015, min: 3, max: 150 },
       card: { rate: 0.025, min: 10, max: 500 },
       cod: { flat: 50 },
-      bank_transfer: { flat: 25 }
+      bank_transfer: { flat: 25 },
+      paypal: { rate: 0.034, flat: 15 }
     };
 
     if (!feeRates[method]) return 0;
 
-    if (feeRates[method].rate) {
+    if (method === 'paypal') {
+      // PayPal has both percentage and flat fee
+      return (amount * feeRates[method].rate) + feeRates[method].flat;
+    } else if (feeRates[method].rate) {
       return Math.max(
         Math.min(amount * feeRates[method].rate, feeRates[method].max || Infinity),
         feeRates[method].min || 0
@@ -132,7 +161,7 @@ const Checkout = () => {
   };
 
   const validateAddress = () => {
-    const required = ['street', 'city', 'state', 'zipCode', 'phone'];
+    const required = ['name', 'street', 'city', 'state', 'zipCode', 'phone'];
     return required.every(field => deliveryAddress[field]?.trim());
   };
 
@@ -159,8 +188,17 @@ const Checkout = () => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify({
-          shippingAddress: deliveryAddress,
-          specialInstructions: specialInstructions
+          shippingAddress: {
+            name: deliveryAddress.name,
+            street: deliveryAddress.street,
+            city: deliveryAddress.city,
+            state: deliveryAddress.state,
+            zipCode: deliveryAddress.zipCode,
+            country: deliveryAddress.country,
+            phone: deliveryAddress.phone
+          },
+          paymentMethod: selectedPaymentMethod,
+          notes: specialInstructions
         })
       });
 
@@ -180,7 +218,15 @@ const Checkout = () => {
         body: JSON.stringify({
           orderId: orderData.order._id,
           paymentMethod: selectedPaymentMethod,
-          deliveryAddress: deliveryAddress,
+          deliveryAddress: {
+            name: deliveryAddress.name,
+            street: deliveryAddress.street,
+            city: deliveryAddress.city,
+            state: deliveryAddress.state,
+            zipCode: deliveryAddress.zipCode,
+            country: deliveryAddress.country,
+            phone: deliveryAddress.phone
+          },
           specialInstructions: specialInstructions
         })
       });
@@ -205,8 +251,16 @@ const Checkout = () => {
               bankDetails: paymentData.payment.gatewayResponse.bankDetails
             } 
           });
+        } else if (selectedPaymentMethod === 'paypal') {
+          // Handle PayPal redirect
+          const approvalUrl = paymentData.payment.gatewayResponse.approvalUrl;
+          if (approvalUrl) {
+            window.location.href = approvalUrl;
+          } else {
+            throw new Error('PayPal approval URL not found');
+          }
         } else {
-          // Redirect to gateway URL for online payments
+          // Redirect to gateway URL for other online payments
           const gatewayUrl = paymentData.payment.gatewayResponse.bkashURL || 
                            paymentData.payment.gatewayResponse.paymentUrl || 
                            paymentData.payment.gatewayResponse.gatewayPageURL;
@@ -241,6 +295,18 @@ const Checkout = () => {
 
   if (!isAuthenticated || !cart) {
     return <div className="checkout-loading">Loading...</div>;
+  }
+
+  // Show loading screen while checking cart
+  if (isLoading) {
+    return (
+      <div className="checkout-container">
+        <div style={{ textAlign: 'center', padding: '2rem' }}>
+          <h2>Loading checkout...</h2>
+          <p>Please wait while we prepare your order.</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -310,6 +376,16 @@ const Checkout = () => {
             
             {(showAddressForm || !deliveryAddress.street) && (
               <div className="address-form">
+                <div className="form-group">
+                  <label>Full Name *</label>
+                  <input
+                    type="text"
+                    value={deliveryAddress.name}
+                    onChange={(e) => handleAddressChange('name', e.target.value)}
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
                 <div className="form-group">
                   <label>Street Address *</label>
                   <input

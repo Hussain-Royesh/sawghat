@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import './Popular.css'
 import Items from '../Items/Items.jsx'
 import { ShopContext } from '../../Context/ShopContext.jsx'
@@ -8,41 +8,49 @@ const Popular = () => {
   const [popularProducts, setPopularProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchPopularProducts = async () => {
-      console.log('Fetching popular products...');
-      try {
-        // First try to load women's products
-        let response = await loadProducts({ 
-          category: 'women',
+  const fetchPopularProducts = useCallback(async () => {
+    console.log('🔍 Popular: Starting to fetch products...');
+    
+    try {
+      // First try to load women's products
+      console.log('🔍 Popular: Calling loadProducts with women category');
+      let response = await loadProducts({ 
+        category: 'women',
+        limit: 4
+      });
+      console.log('🔍 Popular: Women products response:', response);
+      
+      // If no women's products, try to load any products
+      if (!response || !response.products || response.products.length === 0) {
+        console.log('⚠️ Popular: No women products found, trying all products...');
+        response = await loadProducts({ 
           limit: 4
         });
-        console.log('Women products response:', response);
-        
-        // If no women's products, try to load any products
-        if (!response || !response.products || response.products.length === 0) {
-          console.log('No women products found, trying all products...');
-          response = await loadProducts({ 
-            limit: 4
-          });
-          console.log('All products response:', response);
-        }
-        
-        if (response && response.products) {
-          setPopularProducts(response.products);
-          console.log('Products loaded:', response.products.length);
-        } else {
-          console.warn('No products in response');
-        }
-      } catch (error) {
-        console.error('Error fetching popular products:', error);
-      } finally {
-        setLoading(false);
+        console.log('🔍 Popular: All products response:', response);
       }
-    };
-
-    fetchPopularProducts();
+      
+      if (response && response.products && response.products.length > 0) {
+        console.log('✅ Popular: Setting products:', response.products.length);
+        setPopularProducts(response.products);
+      } else {
+        console.warn('❌ Popular: No products in response:', response);
+        setPopularProducts([]);
+      }
+    } catch (error) {
+      console.error('❌ Popular: Error fetching products:', error);
+      setPopularProducts([]);
+    } finally {
+      setLoading(false);
+    }
   }, [loadProducts]);
+
+  useEffect(() => {
+    if (loadProducts) {
+      fetchPopularProducts();
+    } else {
+      setLoading(false);
+    }
+  }, []); // Remove loadProducts dependency to prevent infinite loop
 
   if (loading) {
     return (

@@ -84,14 +84,17 @@ const ShopContextProvider = (props) => {
 
     // =============== PRODUCT FUNCTIONS ===============
     
-    const loadProducts = async (filters = {}) => {
+    const loadProducts = useCallback(async (filters = {}) => {
         try {
             setError(null);
             console.log('Loading products with filters:', filters);
             const response = await apiService.getProducts(filters);
             console.log('API response:', response);
             if (response.success) {
-                setProducts(response.products);
+                // Only update global products state if no specific filters (for general use)
+                if (!filters.category && !filters.limit) {
+                    setProducts(response.products);
+                }
                 return response;
             } else {
                 console.error('API returned success: false', response);
@@ -102,7 +105,7 @@ const ShopContextProvider = (props) => {
             console.error('Error loading products:', error);
             throw error;
         }
-    };
+    }, []);
 
     const loadFeaturedProducts = async () => {
         try {
@@ -161,6 +164,7 @@ const ShopContextProvider = (props) => {
         }
 
         try {
+            console.log('ShopContext: Adding to cart with data:', { productId, quantity, size, color });
             const response = await apiService.addToCart({
                 productId,
                 quantity,
@@ -168,12 +172,17 @@ const ShopContextProvider = (props) => {
                 color
             });
 
+            console.log('ShopContext: API response:', response);
+
             if (response.success) {
                 setCart(response.cart);
                 setCartCount(response.cart.totalItems || 0);
-                return { success: true, message: 'Item added to cart' };
+                return { success: true, message: response.message || 'Item added to cart' };
+            } else {
+                return { success: false, message: response.message || 'Failed to add item to cart' };
             }
         } catch (error) {
+            console.error('ShopContext: Error adding to cart:', error);
             setError(error.message);
             return { success: false, message: error.message };
         }
@@ -240,7 +249,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         checkAuthStatus();
         loadFeaturedProducts();
-    }, [checkAuthStatus]);
+    }, []); // Remove checkAuthStatus dependency to prevent infinite loop
 
     useEffect(() => {
         if (isAuthenticated) {

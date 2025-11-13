@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import './NewCollection.css'
 import Items from '../Items/Items.jsx'
 import { ShopContext } from '../../Context/ShopContext.jsx'
@@ -8,25 +8,40 @@ const NewCollection = () => {
   const [newCollections, setNewCollections] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchNewCollections = async () => {
-      try {
-        const response = await loadProducts({ 
-          newArrival: true,
-          limit: 8
+  const fetchNewCollections = useCallback(async () => {
+    try {
+      // First try to load new arrivals
+      let response = await loadProducts({ 
+        newArrival: true,
+        limit: 8
+      });
+      
+      // If no new arrivals, load recent products
+      if (!response || !response.products || response.products.length === 0) {
+        console.log('No new arrivals found, trying recent products...');
+        response = await loadProducts({ 
+          limit: 8,
+          sort: 'createdAt'
         });
-        if (response && response.products) {
-          setNewCollections(response.products);
-        }
-      } catch (error) {
-        console.error('Error fetching new collections:', error);
-      } finally {
-        setLoading(false);
       }
-    };
-
-    fetchNewCollections();
+      
+      if (response && response.products) {
+        setNewCollections(response.products);
+      }
+    } catch (error) {
+      console.error('Error fetching new collections:', error);
+    } finally {
+      setLoading(false);
+    }
   }, [loadProducts]);
+
+  useEffect(() => {
+    if (loadProducts) {
+      fetchNewCollections();
+    } else {
+      setLoading(false);
+    }
+  }, []); // Remove loadProducts dependency to prevent infinite loop
 
   if (loading) {
     return (
